@@ -19,7 +19,7 @@
     .pad{padding:18px 16px}.eyebrow{margin:0 0 9px;color:var(--copper);font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.section-title{font-family:Georgia,"Noto Serif Devanagari",serif;font-size:30px;line-height:1.02;letter-spacing:-.035em;margin:0}.section-copy{font-size:14px;color:var(--muted);line-height:1.6;margin:12px 0 0}
     .hero{position:relative;overflow:hidden;padding:26px 22px 23px;border-radius:28px;color:#fff;background:radial-gradient(circle at 92% 10%,rgba(237,170,127,.32),transparent 27%),linear-gradient(145deg,#0a2c42,#103c59 67%,#0b2c41);box-shadow:0 23px 55px rgba(8,36,54,.22)}
     .hero:after{content:"";position:absolute;width:155px;height:155px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-72px;bottom:-82px}
-    .hero .eyebrow{color:#f6bd98}.hero h1{font-family:Georgia,"Noto Serif Devanagari",serif;font-size:35px;line-height:1.02;letter-spacing:-.045em;margin:0;max-width:320px}.hero h1 em{font-weight:400;color:#f2ba94}.hero p{position:relative;z-index:1;color:#d5e0e4;font-size:14px;line-height:1.55;margin:15px 0 18px;max-width:360px}.area-row{display:flex;flex-wrap:wrap;gap:7px}.area-row button{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border:1px solid rgba(255,255,255,.17);border-radius:999px;background:rgba(255,255,255,.07);color:#fff;cursor:pointer}.area-row button:active{transform:scale(.98)}
+    .hero .eyebrow{color:#f6bd98}.hero h1{font-family:Georgia,"Noto Serif Devanagari",serif;font-size:35px;line-height:1.02;letter-spacing:-.045em;margin:0;max-width:320px}.hero h1 em{font-weight:400;color:#f2ba94}.hero p{position:relative;z-index:1;color:#d5e0e4;font-size:14px;line-height:1.55;margin:15px 0 18px;max-width:360px}.area-row{display:flex;flex-wrap:wrap;gap:7px}.area-row span{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border:1px solid rgba(255,255,255,.17);border-radius:999px;background:rgba(255,255,255,.07)}
     .profile{display:grid;grid-template-columns:52px 1fr;gap:13px;align-items:center;margin-top:14px;padding:16px;border-radius:22px;background:rgba(255,250,244,.95);box-shadow:var(--shadow)}.avatar{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;color:white;font-size:20px;font-weight:900;background:linear-gradient(145deg,#e49365,#bf6447)}.profile b{font-size:16px}.verified{color:var(--teal)}.profile small{display:block;color:var(--muted);font-size:11px;line-height:1.4;margin-top:3px}
     .action-row{display:grid;grid-template-columns:1.25fr 1fr;gap:9px;margin-top:12px}.btn{min-height:48px;border:0;border-radius:15px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:850;font-size:13px}.btn.primary{background:var(--copper);color:white;box-shadow:0 10px 23px rgba(207,131,86,.26)}.btn.secondary{background:#e4eeed;color:#245b59}.btn.outline{background:transparent;color:var(--navy);border:1px solid rgba(8,36,54,.18)}
     .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:19px 0}.metric{padding:15px 11px;border-radius:18px;background:var(--paper);border:1px solid rgba(8,36,54,.08);box-shadow:0 8px 20px rgba(8,36,54,.05)}.metric b{display:block;color:var(--navy);font-family:Georgia,serif;font-size:24px}.metric span{display:block;color:var(--muted);font-size:10px;line-height:1.3;margin-top:5px}
@@ -66,7 +66,7 @@
           <p class="eyebrow">Property · Local · Reels · Games</p>
           <h1>हर update अब <em>अपनी सही जगह</em> पर।</h1>
           <p>Home पर केवल selected highlights—बाकी Real Estate, Sports, Reels, Games और Tools के clean अलग sections में।</p>
-          <div class="area-row"><button type="button" onclick="switchTab('property')">Real Estate</button><button type="button" onclick="switchTab('sports')">All Sports</button><button type="button" onclick="switchTab('reels')">Reels</button><button type="button" onclick="switchTab('games')">Games</button><button type="button" onclick="switchTab('tools')">Buyer Tools</button><button type="button" onclick="showToast('Fashion / Kurti — Coming Soon')">Fashion</button></div>
+          <div class="area-row"><span>Real Estate</span><span>All Sports</span><span>Reels</span><span>Games</span><span>Buyer Tools</span></div>
         </div>
         <div class="profile">
           <div class="avatar">VM</div><div><b>Vishal Mishra <span class="verified">◆</span></b><small>Naigaon–Virar Property Intelligence · 20+ Years Experience</small></div>
@@ -85,7 +85,6 @@
           <button class="category-card" onclick="switchTab('reels')"><i>▶</i><b>Reels</b><span>Daily VVMC property & development shorts</span></button>
           <button class="category-card" onclick="switchTab('games')"><i>🎮</i><b>Games</b><span>Property quiz, memory और area challenge</span></button>
           <button class="category-card" onclick="switchTab('tools')"><i>₹</i><b>Buyer Tools</b><span>EMI, legal checklist और consultation</span></button>
-          <button class="category-card" onclick="showToast('Fashion / Kurti — Coming Soon')"><i>👗</i><b>Fashion / Kurti</b><span>Coming Soon</span></button>
         </div>
 
         <section class="area-intel">
@@ -173,7 +172,7 @@
           <a class="contact" href="https://wa.me/917020950414"><span class="contact-icon">▤</span><span><b>WhatsApp Chat</b><small>+91 70209 50414 · instant message</small></span><span>›</span></a>
           <a class="contact" href="tel:+917020950414"><span class="contact-icon">☎</span><span><b>Direct Call</b><small>+91 70209 50414</small></span><span>›</span></a>
           <a class="contact" href="mailto:vishal1588mishra@gmail.com"><span class="contact-icon">✉</span><span><b>Email Support</b><small>vishal1588mishra@gmail.com</small></span><span>›</span></a>
-          <a class="contact" href="https://naigaon-property-guide.vishi747392.chatgpt.site"><span class="contact-icon">◎</span><span><b>Official Website</b><small>Premium buyer guides & reports</small></span><span>›</span></a>
+          <a class="contact" href="https://nvpi-v123-source.vercel.app"><span class="contact-icon">◎</span><span><b>Official Website</b><small>Premium buyer guides & reports</small></span><span>›</span></a>
         </div>
         <p class="legal-note">Naigaon–Virar Property Intelligence by Vishal Mishra provides buyer education and practical consultation. RERA, title, approval, price and construction status must be verified from latest official records before payment.</p>
       </div>
@@ -191,7 +190,7 @@
   <div class="toast" id="toast"></div>
 
   <script>
-    const base='https://naigaon-property-guide.vishi747392.chatgpt.site';
+    const base='https://nvpi-v123-source.vercel.app';
     const reports=[
       {area:'FUTURE',status:'DPR APPROVED · PRE-CONSTRUCTION',slug:'uttan-virar-coastal-road-dpr-planning-2026',title:'Uttan–Virar Coastal Road Planning: DPR Approved, Ground Work अभी नहीं',summary:'55.12-km Uttan–Virar Sea Link और approach-road plan का approved DPR, ₹58,754.71-crore estimate और current pre-construction reality।'},
       {area:'FUTURE',status:'DPR + CABINET APPROVAL',slug:'metro-line-13-dpr-planning-cabinet-approval-2026',title:'Metro Line 13 DPR Planning: Cabinet Approval के बाद अगला Step क्या?',summary:'MMRDA DPR listing और 18 August 2026 Cabinet approval के बाद 25.03-km Metro Line 13, 16 announced stations और आगे के execution steps।'},
@@ -251,9 +250,21 @@
     }
     function openTool(id){switchTab(id)}
     document.querySelectorAll('.nav').forEach(btn=>btn.addEventListener('click',()=>switchTab(btn.dataset.tab)));
-    function openReport(slug){location.href=base+'/blog/'+slug}
+    function openReport(slug){
+      const r=reports.find(x=>x.slug===slug);
+      if(!r){showToast('Report नहीं मिला।');return}
+      let detail=document.getElementById('reportDetail');
+      if(!detail){
+        detail=document.createElement('section');
+        detail.id='reportDetail';
+        detail.className='screen';
+        document.querySelector('main').appendChild(detail);
+      }
+      detail.innerHTML=`<div class="screen-head"><button class="back-button" onclick="switchTab('property')">← Property Desk</button><p class="eyebrow">${r.area} · ${r.status}</p><h1 class="section-title">${r.title}</h1><p class="section-copy">${r.summary}</p></div><div class="pad"><article class="report"><div class="report-meta"><span class="report-area">${r.area}</span><span class="report-status">${r.status}</span></div><h3>Buyer Intelligence</h3><p>${r.summary}</p><div class="banner" style="margin-top:16px"><b>Verification Note</b><p>यह report buyer-awareness summary है। Payment या property decision से पहले latest official approvals, project status, title और site conditions independently verify करें।</p></div><div class="action-row"><a class="btn primary" href="https://wa.me/917020950414?text=${encodeURIComponent('Namaste Vishal ji, mujhe is report ke baare mein jankari chahiye: '+r.title)}">WhatsApp Consult</a><button class="btn outline" onclick="shareReport(reports.find(x=>x.slug==='${r.slug}'))">Share</button></div></article></div>`;
+      switchTab('reportDetail');
+    }
     function shareReport(report){
-      const url=base+'/blog/'+report.slug;
+      const url=base+'/#report='+report.slug;
       if(window.Android&&Android.share){Android.share(report.title,url)}else if(navigator.share){navigator.share({title:report.title,url})}else{showToast('Report link: '+url)}
     }
     function reportCard(r){
@@ -271,7 +282,7 @@
     renderSports();
 
     function youtubeId(url){const m=String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);return m?m[1]:null}
-    function playVideo(i){const v=videos[i],id=youtubeId(v.url),wrap=document.getElementById('videoPlayerWrap'),host=document.getElementById('videoPlayerHost'),source=document.getElementById('videoSource');document.getElementById('videoPlayerTitle').textContent=v.title;if(id){host.innerHTML=`<iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0" title="${v.title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;source.href=v.url;source.style.display='inline-flex';source.textContent='YouTube source खोलें ↗'}else{host.innerHTML=`<video class="video-frame" controls autoplay playsinline src="${v.url}"></video>`;source.style.display='none'}wrap.classList.add('show')}
+    function playVideo(i){const v=videos[i],id=youtubeId(v.url),wrap=document.getElementById('videoPlayerWrap'),host=document.getElementById('videoPlayerHost'),source=document.getElementById('videoSource');document.getElementById('videoPlayerTitle').textContent=v.title;if(id){host.innerHTML=`<iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0" title="${v.title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;source.href=v.url;source.style.display='inline-flex';source.textContent='YouTube source खोलें ↗'}else{host.innerHTML=`<video class="video-frame" controls autoplay playsinline src="${v.url}"></video>`;source.style.display='none'}wrap.classList.add('show');wrap.scrollIntoView({behavior:'smooth',block:'start'})}
     function closeVideo(){document.getElementById('videoPlayerHost').innerHTML='';document.getElementById('videoPlayerWrap').classList.remove('show')}
     document.getElementById('videoClose').addEventListener('click',closeVideo);
     document.getElementById('videoCards').innerHTML=videos.map((v,i)=>`<article class="video-card"><button type="button" class="video-thumb" data-play="${i}" aria-label="${v.title} app में चलाएँ"><img src="${v.thumb}" alt="${v.title}" loading="lazy"></button><div class="video-copy"><small>${v.tag}</small><h3>${v.title}</h3><p>${v.summary}</p><button type="button" data-play="${i}">यहीं वीडियो देखें ▶</button></div></article>`).join('');document.querySelectorAll('[data-play]').forEach(b=>b.addEventListener('click',()=>playVideo(+b.dataset.play)));
@@ -304,7 +315,7 @@
       {q:'Achole–Vasant Nagari retail belt और station-market ecosystem?',a:'NALASOPARA'}
     ];let areaPos=0,areaAnswered=false;
     const areaGameBox=document.getElementById('areaGameBox'),areaGameResult=document.getElementById('areaGameResult');
-    function showAreaClue(){areaAnswered=false;let selected=null;const x=areaClues[areaPos%areaClues.length];areaGameBox.innerHTML=`<div class="quiz-q"><b>${x.q}</b><div class="area-game-grid">${['NAIGAON','VASAI','NALASOPARA','VIRAR'].map(a=>`<button type="button" data-areaopt="${a}">${a}</button>`).join('')}</div><button type="button" class="game-btn light" id="areaCheck" style="margin-top:10px">Check Answer</button></div>`;areaGameResult.textContent='';const opts=[...areaGameBox.querySelectorAll('[data-areaopt]')];opts.forEach(b=>b.addEventListener('click',()=>{if(areaAnswered)return;selected=b.dataset.areaopt;opts.forEach(z=>{z.style.background='#fff';z.style.borderColor='rgba(8,36,54,.1)'});b.style.background='#e6efee';b.style.borderColor='#76a995'}));document.getElementById('areaCheck').addEventListener('click',()=>{if(areaAnswered)return;if(!selected){areaGameResult.textContent='पहले अपना answer चुनें।';return}areaAnswered=true;const ok=selected===x.a;areaGameResult.textContent=ok?'Correct ✅':'Wrong ❌ · Correct answer: '+x.a;opts.forEach(z=>{z.disabled=true;if(z.dataset.areaopt===x.a)z.style.background='#e5f1ec';else if(z.dataset.areaopt===selected&&!ok)z.style.background='#f8e5dd'});document.getElementById('areaCheck').disabled=true})}
+    function showAreaClue(){areaAnswered=false;const x=areaClues[areaPos%areaClues.length];areaGameBox.innerHTML=`<div class="quiz-q"><b>${x.q}</b><div class="area-game-grid">${['NAIGAON','VASAI','NALASOPARA','VIRAR'].map(a=>`<button data-areaopt="${a}">${a}</button>`).join('')}</div></div>`;areaGameResult.textContent='';areaGameBox.querySelectorAll('[data-areaopt]').forEach(b=>b.addEventListener('click',()=>{if(areaAnswered)return;areaAnswered=true;const ok=b.dataset.areaopt===x.a;areaGameResult.textContent=ok?'Correct ✅':'Answer: '+x.a;areaGameBox.querySelectorAll('[data-areaopt]').forEach(z=>{if(z.dataset.areaopt===x.a)z.style.background='#e5f1ec'})}))}
     document.getElementById('areaNext').addEventListener('click',()=>{areaPos=(areaPos+1)%areaClues.length;showAreaClue()});showAreaClue();
 
     const money=n=>'₹'+Math.max(0,Math.round(n||0)).toLocaleString('en-IN');
@@ -328,6 +339,11 @@
     function resetChecks(){boxes.forEach(b=>b.checked=false);localStorage.removeItem('property-intelligence-checklist-v1');updateProgress();showToast('Checklist reset हो गई।')}
     function showToast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
     loadChecks();
+    // Open shared in-app report links without creating nonexistent Vercel routes.
+    try{
+      const shared=new URLSearchParams(location.hash.replace(/^#/,'')).get('report');
+      if(shared && reports.some(r=>r.slug===shared)) setTimeout(()=>openReport(shared),80);
+    }catch(e){}
   </script>
 </body>
 </html>
