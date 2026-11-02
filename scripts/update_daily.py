@@ -29,6 +29,7 @@ NEWS_QUERIES = [
     "Vasai Virar railway station infrastructure when:7d",
     "Vasai Virar local news when:7d",
     "Nalasopara Naigaon news when:7d",
+    "Maharashtra RERA property housing news when:7d",
 ]
 FASHION_QUERIES = [
     "India fashion trends ethnic wear textile designers when:7d",
@@ -92,7 +93,7 @@ def recent_items(queries, mode):
             if age < timedelta(hours=-1) or age > timedelta(days=7):
                 continue
             ltitle = title.casefold()
-            if mode == "news" and not any(t in ltitle for t in LOCAL_TERMS):
+            if mode == "news" and not (any(t in ltitle for t in LOCAL_TERMS) or any(t in ltitle for t in PROPERTY_TERMS)):
                 continue
             # A locality alone is not enough: keep local/property/infrastructure focus.
             if mode == "fashion" and not any(t in ltitle for t in ("fashion","saree","style","designer","textile","wear","couture","runway","trend","कपड","फॅशन")):
