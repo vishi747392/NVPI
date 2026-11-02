@@ -30,12 +30,17 @@ jobs:
         run: python scripts/update_daily.py
       - name: Save and publish updated content
         run: |
+          cp daily/updates.json /tmp/nvpi-updates.json
+          cp daily/today-explainer.mp4 /tmp/nvpi-explainer.mp4
+          git fetch origin main
+          git reset --hard origin/main
+          mkdir -p daily
+          cp /tmp/nvpi-updates.json daily/updates.json
+          cp /tmp/nvpi-explainer.mp4 daily/today-explainer.mp4
           git config user.name "nvpi-daily-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add daily/updates.json daily/today-explainer.mp4
           if ! git diff --cached --quiet; then
             git commit -m "Daily NVPI news, explainer and fashion update"
-            git fetch origin main
-            git rebase origin/main
             git push origin HEAD:main
           fi
