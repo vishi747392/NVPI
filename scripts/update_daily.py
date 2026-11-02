@@ -27,6 +27,8 @@ NEWS_QUERIES = [
     "Vasai Virar Nalasopara Naigaon property housing railway infrastructure when:7d",
     "Palghar Vasai Virar municipal metro road housing development when:7d",
     "Vasai Virar railway station infrastructure when:7d",
+    "Vasai Virar local news when:7d",
+    "Nalasopara Naigaon news when:7d",
 ]
 FASHION_QUERIES = [
     "India fashion trends ethnic wear textile designers when:7d",
@@ -93,8 +95,6 @@ def recent_items(queries, mode):
             if mode == "news" and not any(t in ltitle for t in LOCAL_TERMS):
                 continue
             # A locality alone is not enough: keep local/property/infrastructure focus.
-            if mode == "news" and not any(t in ltitle for t in PROPERTY_TERMS):
-                continue
             if mode == "fashion" and not any(t in ltitle for t in ("fashion","saree","style","designer","textile","wear","couture","runway","trend","कपड","फॅशन")):
                 continue
             matches.append({
