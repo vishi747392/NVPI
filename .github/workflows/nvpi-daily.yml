@@ -35,5 +35,7 @@ jobs:
           git add daily/updates.json daily/today-explainer.mp4
           if ! git diff --cached --quiet; then
             git commit -m "Daily NVPI news, explainer and fashion update"
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
           fi
