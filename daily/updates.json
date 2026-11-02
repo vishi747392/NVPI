@@ -1,27 +1,36 @@
 {
-  "updated_at": "2026-11-02T23:39:30.438632+05:30",
+  "updated_at": "2026-11-02T23:40:49.228179+05:30",
   "run_date_ist": "2026-11-02",
   "schedule": "Daily 11:00 AM IST (GitHub Actions; timing can vary)",
-  "news": null,
-  "new_news_today": false,
+  "news": {
+    "title": "Homebuyers’ body FPCE urges PM Modi to restructure RERA as homebuyer protection law | Real Estate News - Hindustan Times",
+    "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOb2hZbkpkNFRjRGROSlN4a3dnZUNZaVpyTWpudlBxRVU2U05pQVpkdEdnMUFINU90ZDNNYUQ3TS15TGR1QkZPa2FncUZ2VjJTWVVGSy13MFZtWk1GVE1wYW12TE9GQzB3SGxsMjFsTUxqdE8yYzFPNWZpeUk3R0VBZk9EU2Z0U0lWc3AybUgtR3BiZF9OMUJzdVhrWktsc1JmZF9sQXpnTm1mTjI0aHRRV1FqZl9nUHZoUlZHU1o2cnNuRlBQdm5adGFKRUNueHY0X01zQWpRWkdDYV96bnhn0gHkAUFVX3lxTE9jVEJxQnBPRlp0UE1fLW1VLUYtQ0NUNEROMzFfZDhEREFXeDVOU1dGVWllcXZiQ0t3amp2STRKbE5iRjdpMTd3RF96X2xoQ2h0N19VSnZ1ZGxLUFczcnFHUkxwYU5WTVg1T21OWnJYem1YTEdkWGh5TlNqVEpNV2YwaDdJdE5KZ0FqbE9IdWlTTzFhQVdnSm9DN0R4V090WVQ0bHBwTFVldTRQVXBKWG5IZ3l6enZTVFFOaTIwY29Ua3c0VEtaS0NjR2NtWjljVjc2RFpwcC1EVUlBdW5MeTdKa0dZag?oc=5",
+    "source": "Hindustan Times",
+    "published_at": "2026-11-02T15:10:54+00:00",
+    "kind": "Source-linked headline (not independently fact-checked)"
+  },
+  "new_news_today": true,
   "fashion": {
-    "title": "Shanaya Kapoor Birthday: 6 Fashion Looks That Stole the Spotlight - Bollywood Mascot",
-    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcm1jSjJjRjJjZmgya0VwX1F6SFRkQm5pUDdFTTRUeUtsRjdzenZQRkVGenowY3ZYUmVqdG9oWFBncmZpOWxCbk9FRnNZUW8wNzNFaDdDa2tTalB3ZEFmanFoam5ydTJTMGdyeWVsRHN3dnJBelpDenY2cTY3U3cya010UXAtZzRtUWIzR0d3aXBJUEdLUkplMjJyenJnRjhsSjk0R2I5amxFN3M?oc=5",
-    "source": "Bollywood Mascot",
-    "published_at": "2026-11-02T12:35:56+00:00",
+    "title": "The Festive Season Bling Boosts India's Ethnic Wear Demands, Creating Opportunities for Its Franchisees - Indian Retailer",
+    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPaFVXc05HYURUU1AzREV0X1hJcGppNEVrQTh4UUxSTXR4dzI3SGdNT2NTcm9JZkF1dmlvTmkxNTE3THdHcXhZOFU5TVlFeXg5cElEeHRLQnpFT1hTaGtiVHg5Ui1INTE5bkR3UGpQX084S2lLVXM4NTF2bHp4RC16VnB2SnVuSHJyRUZ6SFBXM1dHY3BIbFY3YWp1cGZrT3V4MjQ3czYwMHBWemdxcDB2cU9xV3d5Z1h6RHpUTWpjUHhqRVBBNGdrRUQ2YkJUbTRBVkI0Mm1FSFM?oc=5",
+    "source": "Indian Retailer",
+    "published_at": "2026-11-02T11:44:10+00:00",
     "kind": "Fashion headline · linked to original publication"
   },
-  "recent_news_titles": [],
+  "recent_news_titles": [
+    "Homebuyers’ body FPCE urges PM Modi to restructure RERA as homebuyer protection law | Real Estate News - Hindustan Times"
+  ],
   "recent_fashion_titles": [
-    "Shanaya Kapoor Birthday: 6 Fashion Looks That Stole the Spotlight - Bollywood Mascot"
+    "Shanaya Kapoor Birthday: 6 Fashion Looks That Stole the Spotlight - Bollywood Mascot",
+    "The Festive Season Bling Boosts India's Ethnic Wear Demands, Creating Opportunities for Its Franchisees - Indian Retailer"
   ],
   "video": {
     "src": "/daily/today-explainer.mp4",
     "title": "NVPI Daily Property Explainer",
-    "headline": "Naigaon to Virar: before buying, verify RERA, approvals and on-ground conditions.",
-    "source": "NVPI original buyer-awareness tip",
+    "headline": "Homebuyers’ body FPCE urges PM Modi to restructure RERA as homebuyer protection law | Real Estate News - Hindustan Times",
+    "source": "Hindustan Times",
     "kind": "Original text explainer · NO actual location footage",
-    "made_at": "2026-11-02T23:39:30.438632+05:30"
+    "made_at": "2026-11-02T23:40:49.228179+05:30"
   },
   "notice": "Source headlines are attributed, not independently verified. Verify current facts before property decisions."
 }
