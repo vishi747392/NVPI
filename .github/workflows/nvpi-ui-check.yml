@@ -1,0 +1,19 @@
+name: NVPI Share UI Smoke Checks
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'scripts/test_nvpi_ui.mjs'
+      - '.github/workflows/nvpi-ui-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check page script syntax, tabs, share and assets
+        run: node scripts/test_nvpi_ui.mjs
