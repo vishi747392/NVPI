@@ -120,7 +120,7 @@
         <div id="dailyHome" class="daily-grid"><article class="daily-panel">Daily publishing desk loading…</article></div>
         <div class="desk-head"><h2>आज के highlights</h2><button onclick="switchTab('property')">Property desk →</button></div>
         <div class="home-stack">
-          <button class="home-story" onclick="openReport(reports[0].slug)"><small>REAL ESTATE · NAIGAON</small><b>Monsoon और power-risk buyer alert</b><span>Verified report और practical checks property tab में देखें।</span></button>
+          <button class="home-story" onclick="openReport('naigaon-48-hour-blackout-five-foot-flood-warning-2026')"><small>REAL ESTATE · NAIGAON</small><b>Monsoon और power-risk buyer alert</b><span>Verified report और practical checks property tab में देखें।</span></button>
           <button class="home-story" onclick="switchTab('sports')"><small>ALL SPORTS · LIVE DESKS</small><b>Cricket, football और kabaddi updates</b><span>Official fixtures, results और latest coverage अलग sports tab में।</span></button>
           <button class="home-story" onclick="switchTab('reels')"><small>REELS · DAILY DESK</small><b>Property & development short videos</b><span>VVMC region के reels और explainers dedicated section में देखें।</span></button>
           <button class="home-story" onclick="switchTab('games')"><small>GAMES · PLAY & LEARN</small><b>Quiz, memory और area challenge</b><span>थोड़ा timepass, साथ में buyer knowledge भी।</span></button>
@@ -316,6 +316,8 @@
       {sport:'KABADDI',icon:'🤼',label:'PRO KABADDI',title:'PKL Schedule & Results',summary:'Pro Kabaddi fixtures, results, live scores और league coverage.',url:'https://www.prokabaddi.com/schedule-fixtures-results'}
     ];
     const videos=[
+      {tag:'ORIGINAL SITE TOUR',title:'Rashmi Aastha Sample-Flat Walkthrough',summary:'Original NVPI project reference footage. Check pricing and possession independently.',url:'https://naigaon-property-guide.vishi747392.chatgpt.site/assets/rashmi-aastha-sample-flat.mp4',thumb:'https://naigaon-property-guide.vishi747392.chatgpt.site/assets/rashmi-aastha-video-cover.jpg'},
+      {tag:'ORIGINAL GROUND VIDEO',title:'Rashmi Project Ground Walkthrough',summary:'Archived real-site footage, not live construction status.',url:'https://naigaon-property-guide.vishi747392.chatgpt.site/assets/rashmi-nclt-progress/site-progress-video.mp4',thumb:'https://naigaon-property-guide.vishi747392.chatgpt.site/assets/rashmi-nclt-progress/occupied-block-street.jpg'},
       {tag:'INFRASTRUCTURE',title:'Juchandra–Bapane ROB Ground Update',summary:'Construction visual; opening date official source से verify करें।',url:'https://www.youtube.com/watch?v=3eGre7lzuX0',thumb:'https://img.youtube.com/vi/3eGre7lzuX0/hqdefault.jpg'},
       {tag:'OFFICIAL PROJECT',title:'Mumbai–Ahmedabad High-Speed Rail Film',summary:'NHSRCL project overview; Virar milestone अलग verify करें।',url:'https://www.youtube.com/watch?v=rEHmj7gKcNY',thumb:'https://img.youtube.com/vi/rEHmj7gKcNY/hqdefault.jpg'},
       {tag:'RAIL UPDATE',title:'Vasai Road Station Development',summary:'Independent public explainer; scope और timeline official records से check करें।',url:'https://www.youtube.com/watch?v=NBb4rqMnhfI',thumb:'https://img.youtube.com/vi/NBb4rqMnhfI/hqdefault.jpg'},
@@ -377,9 +379,35 @@
 
     function youtubeId(url){const m=String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);return m?m[1]:null}
     function playVideo(i){const v=videos[i],id=youtubeId(v.url),wrap=document.getElementById('videoPlayerWrap'),host=document.getElementById('videoPlayerHost'),source=document.getElementById('videoSource');document.getElementById('videoPlayerTitle').textContent=v.title;if(id){host.innerHTML=`<iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0" title="${v.title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;source.href=v.url;source.style.display='inline-flex';source.textContent='YouTube source खोलें ↗'}else{host.innerHTML=`<video class="video-frame" controls autoplay playsinline src="${v.url}"></video>`;source.style.display='none'}wrap.classList.add('show');wrap.scrollIntoView({behavior:'smooth',block:'start'})}
+    function shareReelOnFacebook(i){
+      if(!Number.isInteger(i)||!videos[i])return;
+      const url=nvpiShareBase+'?video='+i;
+      const fb='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+      if(window.Android){location.href=fb;return}
+      const child=window.open(fb,'_blank');if(child)child.opener=null;else location.href=fb;
+    }
+    function shareReel(i){
+      if(!Number.isInteger(i)||!videos[i])return;
+      const url=nvpiShareBase+'?video='+i;
+      if(window.Android&&window.Android.share){window.Android.share(videos[i].title,url)}
+      else if(navigator.share){navigator.share({title:videos[i].title,url}).catch(()=>{})}
+      else{copyNVPIUrl(url)}
+    }
+    function openSharedVideoLink(){
+      const clip=new URLSearchParams(location.search).get('video');
+      if(clip===null)return;
+      const i=Number(clip);
+      if(Number.isInteger(i)&&i>=0&&i<videos.length){
+        setTimeout(()=>{switchTab('reels');playVideo(i)},130);
+      }
+    }
     function closeVideo(){document.getElementById('videoPlayerHost').innerHTML='';document.getElementById('videoPlayerWrap').classList.remove('show')}
     document.getElementById('videoClose').addEventListener('click',closeVideo);
-    document.getElementById('videoCards').innerHTML=videos.map((v,i)=>`<article class="video-card"><button type="button" class="video-thumb" data-play="${i}" aria-label="${v.title} app में चलाएँ"><img src="${v.thumb}" alt="${v.title}" loading="lazy"></button><div class="video-copy"><small>${v.tag}</small><h3>${v.title}</h3><p>${v.summary}</p><button type="button" data-play="${i}">यहीं वीडियो देखें ▶</button></div></article>`).join('');document.querySelectorAll('[data-play]').forEach(b=>b.addEventListener('click',()=>playVideo(+b.dataset.play)));
+    document.getElementById('videoCards').innerHTML=videos.map((v,i)=>`<article class="video-card"><button type="button" class="video-thumb" data-play="${i}" aria-label="${dailySafe(v.title)} app में चलाएँ"><img src="${dailySafe(v.thumb)}" alt="${dailySafe(v.title)}" loading="lazy" onerror="this.style.opacity='.15'"></button><div class="video-copy"><small>${dailySafe(v.tag)}</small><h3>${dailySafe(v.title)}</h3><p>${dailySafe(v.summary)}</p><button type="button" data-play="${i}">Video देखें ▶</button><div class="reel-share-actions"><button type="button" class="fb" data-fbshare="${i}">f · Facebook</button><button type="button" data-systemshare="${i}">↗ Share</button></div></div></article>`).join('');
+    document.querySelectorAll('[data-play]').forEach(b=>b.addEventListener('click',()=>playVideo(+b.dataset.play)));
+    document.querySelectorAll('[data-fbshare]').forEach(b=>b.addEventListener('click',()=>shareReelOnFacebook(+b.dataset.fbshare)));
+    document.querySelectorAll('[data-systemshare]').forEach(b=>b.addEventListener('click',()=>shareReel(+b.dataset.systemshare)));
+    openSharedVideoLink();
 
     const quizQuestions=[
       {q:'Project का official registration check करने के लिए सबसे जरूरी portal?',o:['MahaRERA','YouTube','Maps'],a:0},
