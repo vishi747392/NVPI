@@ -7,6 +7,16 @@ page.on('pageerror',err=>errors.push(err.message));
 page.on('console',msg=>{if(msg.type()==='error'&&!/net::ERR|favicon/.test(msg.text()))errors.push(msg.text())});
 await page.goto('http://127.0.0.1:8765/',{waitUntil:'domcontentloaded'});
 await page.locator('#home.active').waitFor();
+await page.locator('.visual-card img').first().evaluate(img=>new Promise(resolve=>{
+  if(img.complete)return resolve();
+  img.addEventListener('load',resolve,{once:true});
+  img.addEventListener('error',resolve,{once:true});
+  setTimeout(resolve,12000);
+}));
+const photos=await page.locator('img[src*="naigaon-property-guide.vishi747392.chatgpt.site"]').evaluateAll(images=>images.map(img=>({src:img.src,loaded:img.complete&&img.naturalWidth>0})));
+console.log('RESTORED_IMAGE_LOAD_CHECK',JSON.stringify(photos));
+assert.ok(photos.some(img=>img.loaded),'Original master photo host is unreachable — photos still missing');
+
 const expected=[['Real Estate','property'],['All Sports','sports'],['Reels','reels'],['Fashion','fashion'],['Games','games'],['Buyer Tools','tools']];
 for(const [label,id] of expected){
   await page.locator('[data-tab=home]').click();
