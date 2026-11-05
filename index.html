@@ -261,18 +261,29 @@
     const dailySafe = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const dailyHttps = u => {try{const x=new URL(u,location.origin);return x.protocol==='https:'?x.href:''}catch(e){return ''}};
     const dailyFormatDate=s=>{try{return new Date(s).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit'})+' IST'}catch(e){return ''}};
+    let dailyFeedData=null;
+    function openDailyArticle(){
+      const n=dailyFeedData?.news;
+      if(!n){showToast('News source not available');return}
+      let pane=document.getElementById('dailyArticle');
+      if(!pane){pane=document.createElement('section');pane.className='screen';pane.id='dailyArticle';document.querySelector('main').appendChild(pane)}
+      const link=dailyHttps(n.url);
+      pane.innerHTML=`<div class="screen-head"><button class="back-button" onclick="switchTab('property')">← Property Desk</button><p class="eyebrow">News article · ${dailySafe(n.source)}</p><h1 class="section-title">${dailySafe(n.title)}</h1><p class="section-copy">${dailyFormatDate(n.published_at)}</p></div><div class="pad"><div class="article-source"><h3>Full news article</h3><p>यहाँ मूल publisher की headline और published date दी गई है. Copyright के कारण NVPI उस article का full text copy नहीं करता.</p><p><a href="${link}" target="_self">पूरा article original source पर खोलें ↗</a></p><p>Real-estate decisions से पहले official status verify करें.</p></div><button type="button" class="read-article-btn" onclick="shareNVPIOnFacebook('news')">f · Facebook पर share करें</button></div>`;
+      switchTab('dailyArticle');
+    }
     async function loadDailyDesk(){
       const home=document.getElementById('dailyHome'),newsBox=document.getElementById('dailyNews'),vid=document.getElementById('dailyVideo'),fashionBox=document.getElementById('dailyFashion');
       try{
         const response=await fetch('/daily/updates.json',{cache:'no-store'});
         if(!response.ok)throw Error('Not published yet');
         const data=await response.json();
+        dailyFeedData=data;
         const news=data.news;
         document.getElementById('shareNewsTitle').textContent=news?.title||'Property news (no new story found)';
         document.getElementById('shareFashionTitle').textContent=data.fashion?.title||'Daily fashion ideas';
         const stamp=dailyFormatDate(data.updated_at);
         const newsMarkup=news?
-          `<article class="daily-panel"><div class="daily-meta">LOCAL PROPERTY NEWS · ${dailySafe(news.source)} · ${dailyFormatDate(news.published_at)}</div><h3>${dailySafe(news.title)}</h3><p>${data.new_news_today?'Latest source-linked headline.':'Previously sourced headline; no fresh verified match found today.'} Please read original reporting before sharing.</p><a href="${dailyHttps(news.url)}" target="_blank" rel="noopener noreferrer">Read original source ↗</a></article>`:
+          `<article class="daily-panel"><div class="daily-meta">LOCAL PROPERTY NEWS · ${dailySafe(news.source)} · ${dailyFormatDate(news.published_at)}</div><h3>${dailySafe(news.title)}</h3><p>${data.new_news_today?'Latest source-linked headline.':'Previously sourced headline; no fresh verified match found today.'} Read original reporting before sharing.</p><button type="button" class="read-article-btn" onclick="openDailyArticle()">News article खोलें →</button><a style="display:block;margin-top:12px" href="${dailyHttps(news.url)}" target="_self" rel="noopener noreferrer">Full article original source ↗</a></article>`:
           '<article class="daily-panel"><div class="daily-meta">LOCAL PROPERTY NEWS</div><h3>No recent verified source match</h3><p>No new local property story could be sourced. We will not invent a headline.</p></article>';
         const videoMarkup=`<article class="daily-panel"><div class="daily-meta">ORIGINAL DAILY VIDEO · ${dailySafe(stamp)}</div><h3>${dailySafe(data.video.title)}</h3><p>${dailySafe(data.video.headline)}</p><video controls preload="metadata" playsinline src="/daily/today-explainer.mp4"></video><p>Original text explainer only · not location footage · ${dailySafe(data.video.source)}</p></article>`;
         const fashion=data.fashion;
@@ -356,9 +367,16 @@
         detail.className='screen';
         document.querySelector('main').appendChild(detail);
       }
-      detail.innerHTML=`<div class="screen-head"><button class="back-button" onclick="switchTab('property')">← Property Desk</button><p class="eyebrow">${r.area} · ${r.status}</p><h1 class="section-title">${r.title}</h1><p class="section-copy">${r.summary}</p></div><div class="pad"><article class="report"><div class="report-meta"><span class="report-area">${r.area}</span><span class="report-status">${r.status}</span></div><h3>Buyer Intelligence</h3><p>${r.summary}</p><div class="banner" style="margin-top:16px"><b>Verification Note</b><p>यह report buyer-awareness summary है। Payment या property decision से पहले latest official approvals, project status, title और site conditions independently verify करें।</p></div><div class="action-row"><a class="btn primary" href="https://wa.me/917020950414?text=${encodeURIComponent('Namaste Vishal ji, mujhe is report ke baare mein jankari chahiye: '+r.title)}">WhatsApp Consult</a><button class="btn outline" onclick="shareReport(reports.find(x=>x.slug==='${r.slug}'))">Share</button></div></article></div>`;
+      detail.innerHTML=`<div class="screen-head"><button class="back-button" onclick="switchTab('property')">← Property Desk</button><p class="eyebrow">${r.area} · ${r.status}</p><h1 class="section-title">${r.title}</h1><p class="section-copy">${r.summary}</p></div><div class="pad"><article class="report"><div class="report-meta"><span class="report-area">${r.area}</span><span class="report-status">${r.status}</span></div><img class="report-cover" src="${r.area==='VIRAR'?'https://naigaon-property-guide.vishi747392.chatgpt.site/assets/future/virar-bullet-station.jpg':r.area==='VASAI'?'https://naigaon-property-guide.vishi747392.chatgpt.site/assets/future/vasai-station-deck.jpg':'https://naigaon-property-guide.vishi747392.chatgpt.site/assets/naigaon-actual-drone-view.jpg'}" alt="Archived local area reference image" onerror="this.style.display='none'"><p class="report-cover-note">Archived area photo; not evidence of this specific report.</p><h3>Buyer Intelligence</h3><p style="font-size:15px;line-height:1.65">${r.summary}</p><div class="article-source"><b>Full article reference</b><p>यह entry summary है; इस particular report का complete article वर्तमान source में नहीं है. Related NVPI guide में विस्तार और references पढ़ें.</p><p><a href="${relatedNVPIArticle[r.area]}" target="_self">Related full NVPI guide पढ़ें ↗</a></p></div><div class="banner" style="margin-top:16px"><b>Verification Note</b><p>यह report buyer-awareness summary है। Payment या property decision से पहले latest official approvals, project status, title और site conditions independently verify करें।</p></div><div class="action-row"><a class="btn primary" href="https://wa.me/917020950414?text=${encodeURIComponent('Namaste Vishal ji, mujhe is report ke baare mein jankari chahiye: '+r.title)}">WhatsApp Consult</a><button class="btn outline" onclick="shareReport(reports.find(x=>x.slug==='${r.slug}'))">Share</button></div></article></div>`;
       switchTab('reportDetail');
     }
+    const relatedNVPIArticle={
+      FUTURE:'https://naigaon-property-guide.vishi747392.chatgpt.site/blog/naigaon-development-future-projects',
+      NAIGAON:'https://naigaon-property-guide.vishi747392.chatgpt.site/blog/naigaon-connectivity-infrastructure-real-status',
+      VASAI:'https://naigaon-property-guide.vishi747392.chatgpt.site/blog/naigaon-east-master-development-projects-2000-2026',
+      NALASOPARA:'https://naigaon-property-guide.vishi747392.chatgpt.site/blog/vasai-virar-development-2036-railway-terminus-bullet-train',
+      VIRAR:'https://naigaon-property-guide.vishi747392.chatgpt.site/blog/vasai-virar-development-2036-railway-terminus-bullet-train'
+    };
     function shareReport(report){
       const url=nvpiShareBase+'#report='+encodeURIComponent(report.slug);
       if(window.Android&&Android.share){Android.share(report.title,url)}else if(navigator.share){navigator.share({title:report.title,url})}else{copyNVPIUrl(url)}
