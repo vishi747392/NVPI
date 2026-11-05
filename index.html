@@ -231,10 +231,12 @@
       const link='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(nvpiShareUrl(kind));
       // WebView popup handling is inconsistent. Direct navigation works in local Android shells.
       if(window.Android){location.href=link;return}
-      const w=window.open(link,'_blank','noopener,noreferrer');if(!w)location.href=link;
+      const w=window.open(link,'_blank');if(w){w.opener=null}else{location.href=link}
     }
     async function copyNVPIShare(kind='site'){
-      const url=nvpiShareUrl(kind);
+      return copyNVPIUrl(nvpiShareUrl(kind));
+    }
+    async function copyNVPIUrl(url){
       try{
         if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(url);showToast('Link copied');return}
         const t=document.createElement('textarea');t.value=url;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();
@@ -261,9 +263,9 @@
         const videoMarkup=`<article class="daily-panel"><div class="daily-meta">ORIGINAL DAILY VIDEO · ${dailySafe(stamp)}</div><h3>${dailySafe(data.video.title)}</h3><p>${dailySafe(data.video.headline)}</p><video controls preload="metadata" playsinline src="/daily/today-explainer.mp4"></video><p>Original text explainer only · not location footage · ${dailySafe(data.video.source)}</p></article>`;
         const fashion=data.fashion;
         const fashionMarkup=`<article class="fashion-card"><div class="daily-meta">FASHION DAILY · ${dailySafe(stamp)}</div><h3>${dailySafe(fashion.title)}</h3><p>${dailySafe(fashion.description||fashion.kind)}</p>${dailyHttps(fashion.url)?`<a href="${dailyHttps(fashion.url)}" target="_blank" rel="noopener noreferrer">Read original fashion source ↗</a>`:'<p>NVPI original styling advice.</p>'}</article>`;
-        newsBox.innerHTML=newsMarkup;
-        vid.innerHTML=videoMarkup;
-        fashionBox.innerHTML=fashionMarkup;
+        newsBox.innerHTML=newsMarkup+'<button class="daily-share" onclick="shareNVPIOnFacebook(\'news\')">f · Share NVPI news</button>';
+        vid.innerHTML=videoMarkup+'<button class="daily-share" onclick="shareNVPIOnFacebook(\'video\')">f · Share NVPI video</button>';
+        fashionBox.innerHTML=fashionMarkup+'<button class="daily-share" onclick="shareNVPIOnFacebook(\'fashion\')">f · Share NVPI fashion</button>';
         home.innerHTML=newsMarkup+videoMarkup+fashionMarkup;
       }catch(err){
         const m='<article class="daily-panel"><div class="daily-meta">UPDATES NOT READY</div><h3>Daily publishing will appear after the first successful scheduled run.</h3><p>Existing property reports and videos are still available below.</p></article>';
@@ -343,7 +345,7 @@
     }
     function shareReport(report){
       const url=nvpiShareBase+'#report='+encodeURIComponent(report.slug);
-      if(window.Android&&Android.share){Android.share(report.title,url)}else if(navigator.share){navigator.share({title:report.title,url})}else{copyNVPIShare('site')}
+      if(window.Android&&Android.share){Android.share(report.title,url)}else if(navigator.share){navigator.share({title:report.title,url})}else{copyNVPIUrl(url)}
     }
     function reportCard(r){
       const alert=/ALLEGATION|ALERT/.test(r.status)?' alert':'';
