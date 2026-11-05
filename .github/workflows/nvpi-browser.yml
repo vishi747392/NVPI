@@ -1,0 +1,27 @@
+name: NVPI Real Browser Checks
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - scripts/test_nvpi_browser.mjs
+      - .github/workflows/nvpi-browser.yml
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.56.1
+      - run: npx playwright install chromium --with-deps
+      - name: Launch test website
+        run: |
+          nohup python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/nvpi-server.log 2>&1 &
+          sleep 2
+      - run: node scripts/test_nvpi_browser.mjs
