@@ -225,7 +225,7 @@
     const base='https://nvpi-v123-source.vercel.app';
     const nvpiShareBase='https://nvpi-v123-source.vercel.app/';
     function nvpiShareUrl(kind='site'){
-      return nvpiShareBase+({news:'#daily=news',video:'#daily=video',fashion:'#daily=fashion'}[kind]||'');
+      return nvpiShareBase+({news:'share/news.html',video:'share/video.html',fashion:'share/fashion.html'}[kind]||'');
     }
     function shareNVPIOnFacebook(kind='site'){
       const link='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(nvpiShareUrl(kind));
@@ -423,7 +423,7 @@
     try{
       const shared=new URLSearchParams(location.hash.replace(/^#/,'')).get('report');
       if(shared && reports.some(r=>r.slug===shared)) setTimeout(()=>openReport(shared),80);
-      const daily=new URLSearchParams(location.hash.replace(/^#/,'')).get('daily');
+      const daily=new URLSearchParams(location.search).get('daily')||new URLSearchParams(location.hash.replace(/^#/,'')).get('daily');
       if(!shared&&daily) setTimeout(()=>switchTab(daily==='news'?'property':daily==='video'?'reels':daily==='fashion'?'fashion':'home'),80);
     }catch(e){}
   </script>
