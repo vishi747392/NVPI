@@ -17,12 +17,16 @@ const photos=await page.locator('img[src*="naigaon-property-guide.vishi747392.ch
 console.log('RESTORED_IMAGE_LOAD_CHECK',JSON.stringify(photos));
 assert.ok(photos.some(img=>img.loaded),'Original master photo host is unreachable — photos still missing');
 
-const expected=[['Real Estate','property'],['All Sports','sports'],['Reels','reels'],['Fashion','fashion'],['Games','games'],['Buyer Tools','tools']];
+const expected=[['Real Estate','property'],['All Sports','sports'],['Reels','reels'],['Travel','travel'],['Fashion','fashion'],['Games','games'],['Buyer Tools','tools']];
 for(const [label,id] of expected){
   await page.locator('[data-tab=home]').click();
   await page.getByRole('navigation',{name:'Explore NVPI sections'}).getByRole('button',{name:label}).click();
   assert.equal(await page.locator('#'+id).evaluate(x=>x.classList.contains('active')),true,label+' chip should navigate');
 }
+await page.locator('[data-tab=travel]').click();
+await page.locator('#travel.active').waitFor();
+assert.ok((await page.locator('#travel').innerText()).includes('Travel Desk'));
+assert.ok(await page.locator('#dailyTravel .travel-article').count()>=1);
 await page.locator('[data-tab=property]').click();
 await page.locator('#property .report-actions .open').first().click();
 await page.locator('#reportDetail.active').waitFor();
