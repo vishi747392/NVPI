@@ -35,6 +35,34 @@ FASHION_QUERIES = [
     "India fashion trends ethnic wear textile designers when:7d",
     "Indian fashion style saree sustainable fashion when:7d",
 ]
+# Facebook TRAVEL niche only: hidden gems, drives, road trips and destinations.
+# These are search terms, not automatic Facebook account connections.
+TRAVEL_QUERIES = [
+    "Maharashtra tourism travel hidden places forts caves road trip when:7d",
+    "Maharashtra Goa tourism beaches waterfalls road trip when:7d",
+    "Goa beach tourism offbeat travel destination when:7d",
+    "Karnataka Andhra Pradesh caves scenic tourist destination when:7d",
+    "India highway road trip driving routes tourist travel when:7d",
+    "India offbeat travel destinations trekking forts tourism when:7d",
+]
+TRAVEL_SUBJECTS = (
+    "travel", "tourism", "tourist", "destination", "road trip", "roadtrip",
+    "scenic", "beach", "fort", "cave", "waterfall", "trek", "hill station",
+    "hidden gem", "offbeat", "highway", "route", "monsoon trip",
+    "heritage site", "nature trail", "safari", "trip", "getaway",
+    "पर्यटन", "यात्रा", "पर्यटक", "समुद्रतट", "किला", "गुफा", "धबधबा",
+    "समुद्रकिनारा", "किल्ला", "लेणी"
+)
+TRAVEL_REGIONS = (
+    "maharashtra", "goa", "konkan", "mumbai", "pune", "lonavala",
+    "vasai", "virar", "palghar", "sindhudurg", "ratnagiri", "raigad",
+    "sahyadri", "kolhapur", "satara", "nashik", "gokarna",
+    "karnataka", "belum", "gandikota", "andhra", "murudeshwar",
+    "india", "western ghats", "arvalem", "netravali",
+)
+TRAVEL_EXCLUDE = ("celebrity", "box office", "stock price", "cricket", "tournament",
+                  "relationship", "fashion week", "flight attendant", "astrology")
+
 LOCAL_TERMS = ("vasai", "virar", "nalasopara", "naigaon", "palghar", "vvmc",
                "juchandra", "dahanu", "vaitarna", "boisar")
 PROPERTY_TERMS = ("housing", "property", "real estate", "metro", "rail", "train",
@@ -98,12 +126,26 @@ def recent_items(queries, mode):
             # A locality alone is not enough: keep local/property/infrastructure focus.
             if mode == "fashion" and not any(t in ltitle for t in ("fashion","saree","style","designer","textile","wear","couture","runway","trend","कपड","फॅशन")):
                 continue
+            if mode == "travel":
+                # Keep travel explicitly separate from property and fashion.
+                if any(t in ltitle for t in TRAVEL_EXCLUDE):
+                    continue
+                if not any(t in ltitle for t in TRAVEL_SUBJECTS):
+                    continue
+                if not any(t in ltitle for t in TRAVEL_REGIONS):
+                    continue
             matches.append({
                 "title": title, "url": link, "source": source,
                 "published_at": published.isoformat(),
                 "kind": "Source-linked headline (not independently fact-checked)",
             })
-    matches.sort(key=lambda x: x["published_at"], reverse=True)
+    if mode == "travel":
+        # Prefer Maharashtra/Goa road-trip and hidden-destination stories.
+        priority = ("maharashtra","goa","konkan","sahyadri","palghar","vasai","virar",
+                    "fort","cave","beach","road trip","highway","offbeat","hidden","waterfall")
+        matches.sort(key=lambda x:(sum(2 if p in x["title"].casefold() else 0 for p in priority), x["published_at"]),reverse=True)
+    else:
+        matches.sort(key=lambda x: x["published_at"], reverse=True)
     return matches
 
 def pick(items, previous_titles):
@@ -140,6 +182,15 @@ def select_content():
         fashion = {"title": title, "description": description, "url": "",
                    "source": "NVPI original style tip", "published_at": NOW.isoformat(),
                    "kind": "Everyday style advice (not breaking news)"}
+    travel_history = (old.get("recent_travel_titles") or [])[-45:]
+    travel = pick(recent_items(TRAVEL_QUERIES, "travel"), set(travel_history))
+    travel_is_new = travel is not None
+    if travel:
+        travel_history.append(travel["title"])
+        travel["kind"] = "Source-attributed travel headline (not independently verified)"
+    else:
+        # Keep the previous headline rather than inventing travel news.
+        travel = old.get("travel")
     if news:
         text_for_video = news["title"]
         attribution = news["source"]
@@ -150,6 +201,8 @@ def select_content():
         "updated_at": NOW.isoformat(), "run_date_ist": TODAY,
         "schedule": "Daily 11:00 AM IST (GitHub Actions; timing can vary)",
         "news": news, "new_news_today": news_is_new,
+        "travel": travel, "new_travel_today": travel_is_new,
+        "recent_travel_titles": travel_history[-45:],
         "fashion": fashion, "recent_news_titles": history[-45:],
         "recent_fashion_titles": fashion_history[-45:],
         "video": {
@@ -258,7 +311,9 @@ def main():
     print("Published daily package:", TODAY,
           "news-new:", data["new_news_today"],
           "news:", (data["news"] or {}).get("title","none")[:90],
-          "fashion:", data["fashion"]["title"][:90])
+          "fashion:", data["fashion"]["title"][:90],
+          "travel-new:", data["new_travel_today"],
+          "travel:", (data["travel"] or {}).get("title","none")[:90])
 
 if __name__ == "__main__":
     main()
