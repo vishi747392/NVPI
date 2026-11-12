@@ -1,20 +1,31 @@
 {
-  "updated_at": "2026-11-11T18:25:57.937845+05:30",
-  "run_date_ist": "2026-11-11",
+  "updated_at": "2026-11-12T12:38:19.798895+05:30",
+  "run_date_ist": "2026-11-12",
   "schedule": "Daily 11:00 AM IST (GitHub Actions; timing can vary)",
   "news": {
-    "title": "Read Vasai - Gallinews",
-    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE5IQUl5NjQ0ZlBfT0xVSWhzOHphbW9DYndUcFBMMWdEdFMybFY3dWVFZ3lmM20tVmhocDV0d3JRTFVjTnI1d1E?oc=5",
-    "source": "Gallinews",
-    "published_at": "2026-11-11T09:33:38+00:00",
+    "title": "Diwali reel gone wrong: Vasai youth gets 72 stitches after sky shot cracker explodes in hand - The Times of India",
+    "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQVHEwS3lXcFdKSmwxcm91b0p4VDNNa2JpeXg0ZmVkRkY4T3dRSHJkc1RjZGJrc2RJZ3FTTFBGcEtjOXdJNDBHRkhrY09UbnhETkxaUGRzWWQ0bi0tdm5FYWVUWlY0a1lxVzZCMUFMYkRsaFg5bDBsZmV3TEpZMWRfRVY5dThNLVMyTU01MjRLR09Gdzh6WHFTbVlmci1ud1RNMlBqcTFnM25tbEUtNzNaUk05RXRyRFNmNC1mWnpaTENfSjRjQnlBRy1UbFJocGdnQmFvcTNQUVZaSl8tc3ZaeVlzVTNwaTJPMmJjSVc3cS1GYjQ3SVdTaNIB_gFBVV95cUxPR3Y1RDZHaVZSSjFrc3BiV0d3OVhwYXZaSzNhTnJJaHJwTUUzbi1UaVFFUGFNS3ZBbDJiVXRHcDBLVDlwS0w5cGZGZ1Zfb1YtcTFkMDBYS2xmc0phZnRIR3VQWDl3THpqa29pS1lIdUJQaGVFZ0I0VUNhcGM3SkZRbzNzRVN4SVNXQUl2R25YMHV6bGZiempEajNTX3NLMEJqSUYyMGNWc3RwNzhBcVBpUWFSN3JlZVgxMmM1TVJ4RVBXT2QxUmlZUDFtOHBvTzhPeEc4Qld2bC1QV0h3eW54eEExNEJ5WW0yUzVzYUhmUXNYZ0ZVTUE2NlNRQkNDUQ?oc=5",
+    "source": "The Times of India",
+    "published_at": "2026-11-11T13:56:00+00:00",
     "kind": "Source-linked headline (not independently fact-checked)"
   },
   "new_news_today": true,
+  "travel": {
+    "title": "This Is India’s Most Scenic Road Trip—With Untouched Beaches, Lush Waterfalls, and Sacred Temples Along the Way - Travel + Leisure",
+    "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9ZX2I5N1dvNXg5bXpmYWFOQTJPaUJOMjl0dnRNcUoxQWtpVHBiTWRmWVY5OEJSR3dRZnhVUFN6dTV3ZmJuTmRiYVJrYkI0ZGVfd29xdkNsLVhkd1JVVnZzYmpGMV9ibk9vVVR0cXlHRzZwdFNCZDVMVEtn?oc=5",
+    "source": "Travel + Leisure",
+    "published_at": "2026-11-09T13:23:00+00:00",
+    "kind": "Source-attributed travel headline (not independently verified)"
+  },
+  "new_travel_today": true,
+  "recent_travel_titles": [
+    "This Is India’s Most Scenic Road Trip—With Untouched Beaches, Lush Waterfalls, and Sacred Temples Along the Way - Travel + Leisure"
+  ],
   "fashion": {
-    "title": "How fashion designers are reimagining kente cloth - NewsBytes",
-    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNaDJtbjFBMk1SMEZhVTAwd1FDTWE4YlpLQVY4UjU3U2xuTFIwTVFPdXBCZzJkYzh0dWtTSUZOMHhnXzEwajc1WXp0TDFobUFyNnVVVjhjY2dnb3U3R2k1TkFZV1U3WlJhUmx1SmplcFNpOEhaQTRxMU1LVWo4QUxmbS1qLVQtZEt5MDdWVGpQZ2ZNNFdTOEE?oc=5",
-    "source": "NewsBytes",
-    "published_at": "2026-11-11T06:04:28+00:00",
+    "title": "27 years in fashion, one new perspective: Pawan Sachdevaa on reimagining Indian craft - The Times of India",
+    "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNNUNPTEVlUHp2c0ZBYXFfRFFQeGJhLXdMR0hQZURzWXRTbFNhcXpxQmRmSVRNUmxOMnBkVkJick1idkhFZ25OZV9jdzJYY1MyNnhSakJEaXZyYjlzaVVWRGZaaWM2NzFQTTkzS1Y5bVlZdGdfOWVvWVJXRmNGZGtOUm80bU9zZEpBeWJnUDgybWFxbEdCaXVUQVltUWdvbmw2MXlBUkdfSW11bkVLZXFUaVUtR3hraGtLTFVEVFdnUXdmNmlYRElManQzbFJMTC1pbDduVU50aWxralpBN3I5SjEzTmRUbzJURE05MlZ3UGhobmpQcFljcWItNmtkajRxUDZqdw?oc=5",
+    "source": "The Times of India",
+    "published_at": "2026-11-11T15:30:00+00:00",
     "kind": "Fashion headline · linked to original publication"
   },
   "recent_news_titles": [
@@ -28,7 +39,8 @@
     "Laggar Falcon Sighting Reveals Nalasopara Habitat Crisis - urbanacres.in",
     "LiveLawBiz RERA Cases Weekly Digest: November 1 - November 7, 2026 - LiveLawBiz",
     "Developer Must Obtain Court Permission For Rights Affecting Minor's Property Share: Odisha REAT - LiveLawBiz",
-    "Read Vasai - Gallinews"
+    "Read Vasai - Gallinews",
+    "Diwali reel gone wrong: Vasai youth gets 72 stitches after sky shot cracker explodes in hand - The Times of India"
   ],
   "recent_fashion_titles": [
     "Shanaya Kapoor Birthday: 6 Fashion Looks That Stole the Spotlight - Bollywood Mascot",
@@ -42,15 +54,16 @@
     "Why Indian Wear Continues to Dominate in the Age of Western Fashion - NKTV",
     "From Regal Sarees To Glamorous Lehengas: 7 Femina Miss India Queens In Their Diwali Best - Femina India",
     "Bhai Dooj 2026: Festive Fashion Trends Inspired By Celebrity Style - Outlook Luxe",
-    "How fashion designers are reimagining kente cloth - NewsBytes"
+    "How fashion designers are reimagining kente cloth - NewsBytes",
+    "27 years in fashion, one new perspective: Pawan Sachdevaa on reimagining Indian craft - The Times of India"
   ],
   "video": {
     "src": "/daily/today-explainer.mp4",
     "title": "NVPI Daily Property Explainer",
-    "headline": "Read Vasai - Gallinews",
-    "source": "Gallinews",
+    "headline": "Diwali reel gone wrong: Vasai youth gets 72 stitches after sky shot cracker explodes in hand - The Times of India",
+    "source": "The Times of India",
     "kind": "Original text explainer · NO actual location footage",
-    "made_at": "2026-11-11T18:25:57.937845+05:30"
+    "made_at": "2026-11-12T12:38:19.798895+05:30"
   },
   "notice": "Source headlines are attributed, not independently verified. Verify current facts before property decisions."
 }
