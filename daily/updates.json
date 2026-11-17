@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-16T19:26:43.801208+05:30",
-  "run_date_ist": "2026-11-16",
+  "updated_at": "2026-11-17T20:20:00.295253+05:30",
+  "run_date_ist": "2026-11-17",
   "schedule": "Daily 11:00 AM IST (GitHub Actions; timing can vary)",
   "news": {
-    "title": "10 Years of RERA: Homebuyers Seek PM Modi's Intervention to Overhaul the Law, Cabinet Secretariat Takes Note - The Realty Today",
-    "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQeTRVMUhjSW9tVGJCTjE5elVDMUN0V1FqVU1OMVpiWk1TT2czcTNkUF9EWndmcXl2djBBUDA4ZnZCSFpRb2Y4aXNlVEpoWmJLRWxWM0xiQjZhdzBFNEFxYUlJYlRoX09EQS05eDFSYzFYWVBDaU9UYkFramtPV2wwWHkwa0NtSGNZeThWY3RyVEdYdWFKdEpZVzRVdUpYNy01dE52Ty1yS2ZCRjZialJvb3V4VTB1NVo3YlU3ZFdvb3Q2amFwcExqYXdkbXd5WUEwU1VHbWwxSmUxYWJMT1BlbF9B?oc=5",
-    "source": "The Realty Today",
-    "published_at": "2026-11-16T10:43:33+00:00",
+    "title": "Odisha REAT Says Ignorance Of RERA Law No Excuse For Advertising Unregistered Project, Upholds Penalty - LiveLawBiz",
+    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQeWdPZkNvbzBKWGw2ZTVvNVVLYkVvTHNfdGN6cmc1Ni13ZXF3ZHZTNWkxNl9UQ2k0aHhsMTl2c0xtY3RiR3I1bHkxUnBxeVpuNS13b0VFeEZucnhsdGxNTlJwaHNSTXdkRmJJTm14LWFna2pVdkx1SW9YdVJlVUlmaUc0VVFxZ09hSWY3eE5VYk9wREFvTXZleTF3NXVIbXV1azhRbUFXX1FnQTZGM1NEWksyZ2RiTjA4ODdjVWxlVW13WmFpbk4wNNIByAFBVV95cUxQeWdPZkNvbzBKWGw2ZTVvNVVLYkVvTHNfdGN6cmc1Ni13ZXF3ZHZTNWkxNl9UQ2k0aHhsMTl2c0xtY3RiR3I1bHkxUnBxeVpuNS13b0VFeEZucnhsdGxNTlJwaHNSTXdkRmJJTm14LWFna2pVdkx1SW9YdVJlVUlmaUc0VVFxZ09hSWY3eE5VYk9wREFvTXZleTF3NXVIbXV1azhRbUFXX1FnQTZGM1NEWksyZ2RiTjA4ODdjVWxlVW13WmFpbk4wNA?oc=5",
+    "source": "LiveLawBiz",
+    "published_at": "2026-11-17T11:22:17+00:00",
     "kind": "Source-linked headline (not independently fact-checked)"
   },
   "new_news_today": true,
@@ -17,7 +17,7 @@
     "published_at": "2026-11-11T09:44:51+00:00",
     "kind": "Source-attributed travel headline (not independently verified)"
   },
-  "new_travel_today": true,
+  "new_travel_today": false,
   "recent_travel_titles": [
     "This Is India’s Most Scenic Road Trip—With Untouched Beaches, Lush Waterfalls, and Sacred Temples Along the Way - Travel + Leisure",
     "Asia's Most Beautiful Beach In Goa? Discover This Stunning Coastal Paradise, What Makes It Special - Asianet Newsable",
@@ -27,10 +27,10 @@
     "Beyond Goa and Maldives: Why coastal Karnataka deserves a place on your travel list — things to keep in mind - Livemint"
   ],
   "fashion": {
-    "title": "B.Des in Fashion Design: Eligibility, Admission, Fees, Syllabus, Colleges, Jobs & Salary - College Mentor",
-    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBuX2NBNWItZkZwSkxNOEloczBlMEhEd0RRd3NIUUFpRDllcVBxVFhCMVBTN2cxR1NSLTVkUk1KR2pEb1RXSkU5TzNuVTBibl9FNWdNOWhxWk56ajJXVklYRHlROHBJQm85U1E?oc=5",
-    "source": "College Mentor",
-    "published_at": "2026-11-16T12:35:23+00:00",
+    "title": "Aadyam Handwoven Looks Beyond Traditional Textiles - Indian Retailer",
+    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTHBab1ZiMkdudUFUUk51WF9xSU9PZVFjRm5xS1d0S1M1aUk3OXNjVWRPbk5CbERkM2dHRE12RGpfdENHNmYyYThvZXdQX3VwWnNYb2JHZWphQWFYZm04TXlnRWV4TTRIX0sxVkNjZ1VaLUt5OXFOMnFxMVROT2NodUFmMzNydGt3QmZreExXVTFvX05BOGswbXJRZ0xoclFiNFNGd1RhQmhSV1lpS2szWDVrSQ?oc=5",
+    "source": "Indian Retailer",
+    "published_at": "2026-11-17T12:27:08+00:00",
     "kind": "Fashion headline · linked to original publication"
   },
   "recent_news_titles": [
@@ -50,7 +50,8 @@
     "Vasai Dumping Ground Fire Worsens Air Pollution Crisis - Urban Acres",
     "Possession Date In Housing Loan Agreement Cannot Override Date In Flat Buyer's Agreement: Haryana REAT - LiveLawBiz",
     "MahaRERA rejects Pune homebuyer's parking claim, cites registered agreement stating no parking was sought | Hindustan Times - Hindustan Times",
-    "10 Years of RERA: Homebuyers Seek PM Modi's Intervention to Overhaul the Law, Cabinet Secretariat Takes Note - The Realty Today"
+    "10 Years of RERA: Homebuyers Seek PM Modi's Intervention to Overhaul the Law, Cabinet Secretariat Takes Note - The Realty Today",
+    "Odisha REAT Says Ignorance Of RERA Law No Excuse For Advertising Unregistered Project, Upholds Penalty - LiveLawBiz"
   ],
   "recent_fashion_titles": [
     "Shanaya Kapoor Birthday: 6 Fashion Looks That Stole the Spotlight - Bollywood Mascot",
@@ -70,15 +71,16 @@
     "Chhath Puja 2026: Traditional Saree Designs to Ace Festive Glam - Herzindagi",
     "Freida Pinto Is Classically Elegant In A Custom Black-Gold Manish Malhotra Saree: Actress Stuns Fans With Her Latest Fashion Look - www.oneworldnews.com",
     "Karthigai Deepam 2026: 5 South Indian Actress-Inspired Saree Looks To Steal This Festive Season - Herzindagi",
-    "B.Des in Fashion Design: Eligibility, Admission, Fees, Syllabus, Colleges, Jobs & Salary - College Mentor"
+    "B.Des in Fashion Design: Eligibility, Admission, Fees, Syllabus, Colleges, Jobs & Salary - College Mentor",
+    "Aadyam Handwoven Looks Beyond Traditional Textiles - Indian Retailer"
   ],
   "video": {
     "src": "/daily/today-explainer.mp4",
     "title": "NVPI Daily Property Explainer",
-    "headline": "10 Years of RERA: Homebuyers Seek PM Modi's Intervention to Overhaul the Law, Cabinet Secretariat Takes Note - The Realty Today",
-    "source": "The Realty Today",
+    "headline": "Odisha REAT Says Ignorance Of RERA Law No Excuse For Advertising Unregistered Project, Upholds Penalty - LiveLawBiz",
+    "source": "LiveLawBiz",
     "kind": "Original text explainer · NO actual location footage",
-    "made_at": "2026-11-16T19:26:43.801208+05:30"
+    "made_at": "2026-11-17T20:20:00.295253+05:30"
   },
   "notice": "Source headlines are attributed, not independently verified. Verify current facts before property decisions."
 }
